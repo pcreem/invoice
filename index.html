@@ -5,12 +5,14 @@
     <title>照片轉文字</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <div class="container">
         <h1>照片轉文字應用</h1>
         <form id="uploadForm">
             <input type="file" id="fileInput" accept="image/*" required>
+            <img id="imagePreview" src="" alt="圖片預覽" style="max-width:100%; margin-top:10px; display:none;" />
             <button type="submit">上傳</button>
         </form>
 
@@ -22,6 +24,8 @@
             <h3>識別結果:</h3>
             <pre id="recognizedText" class="text-box"></pre>
             <button id="copyButton">複製文字</button>
+            <button id="downloadTxt">下載 .txt</button>
+            <button id="downloadPdf">下載 .pdf</button>
         </div>
     </div>
     <script src="script.js"></script>
