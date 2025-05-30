@@ -59,25 +59,39 @@ document.getElementById('copyButton').addEventListener('click', function () {
     });
 });
 
+function downloadBlob(content, mimeType, filename) {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
 document.getElementById('downloadTxt').addEventListener('click', function () {
     const text = document.getElementById('recognizedText').textContent;
-    const blob = new Blob([text], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    downloadFile(url, 'recognized.txt');
+    downloadBlob(text, 'text/plain', 'recognized.txt');
 });
 
-document.getElementById('downloadPdf').addEventListener('click', function () {
+document.getElementById('downloadDoc').addEventListener('click', function () {
     const text = document.getElementById('recognizedText').textContent;
-    const doc = new window.jspdf.jsPDF();
+    downloadBlob(text, 'application/msword', 'recognized.doc');
+});
+
+document.getElementById('downloadDocx').addEventListener('click', function () {
+    const text = document.getElementById('recognizedText').textContent;
+    downloadBlob(text, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'recognized.docx');
+});
+
+document.getElementById('downloadPdf').addEventListener('click', async function () {
+    const text = document.getElementById('recognizedText').textContent;
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    doc.addFileToVFS("NotoSansTC-Regular.ttf", NotoSansTCRegular);
+    doc.addFont("NotoSansTC-Regular.ttf", "NotoSansTC", "normal");
+    doc.setFont("NotoSansTC");
     const lines = doc.splitTextToSize(text, 180);
     doc.text(lines, 10, 10);
     doc.save('recognized.pdf');
 });
-
-function downloadFile(url, filename) {
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = filename;
-    link.click();
-    URL.revokeObjectURL(url);
-}
