@@ -13,7 +13,7 @@
 - ✅ 使用 [OCR.Space API](https://ocr.space/OCRAPI) 辨識繁體中文文字
 - ✅ 顯示辨識結果
 - ✅ 支援文字複製
-- ✅ 支援下載辨識結果為 `.txt` / `.pdf` / `.doc` / `.docx`
+- ✅ 支援下載辨識結果為 `.txt` / `.doc` / `.docx`
 
 ---
 
@@ -21,7 +21,6 @@
 
 ### 📌 前端
 - HTML5 / CSS3 / JavaScript
-- jsPDF（支援 PDF 輸出與繁體字型）
 - Base64 字型內嵌：`NotoSansTC-Regular`（支援中文）
 
 ### 🧪 後端
