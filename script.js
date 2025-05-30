@@ -83,15 +83,3 @@ document.getElementById('downloadDocx').addEventListener('click', function () {
     const text = document.getElementById('recognizedText').textContent;
     downloadBlob(text, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'recognized.docx');
 });
-
-document.getElementById('downloadPdf').addEventListener('click', async function () {
-    const text = document.getElementById('recognizedText').textContent;
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-    doc.addFileToVFS("NotoSansTC-Regular.ttf", NotoSansTCRegular);
-    doc.addFont("NotoSansTC-Regular.ttf", "NotoSansTC", "normal");
-    doc.setFont("NotoSansTC");
-    const lines = doc.splitTextToSize(text, 180);
-    doc.text(lines, 10, 10);
-    doc.save('recognized.pdf');
-});
