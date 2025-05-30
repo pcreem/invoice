@@ -1,7 +1,7 @@
 # 📷 照片轉文字 OCR 網頁應用
 
 這是一個簡單的 Web 專案，使用 Python Flask 建立後端，前端為 HTML + JS + CSS，可上傳圖片並透過 [OCR.Space API](https://ocr.space/OCRAPI) 進行文字辨識，支援繁體中文。
-
+[網站](https://invoice-6wzx.onrender.com/)
 ![專案畫面截圖](screenshot.png)
 
 ---
@@ -68,7 +68,7 @@ services:
 ```
 
 ### 2️⃣ 推上 GitHub 並連結 Render：
-- [https://invoice-6wzx.onrender.com/](https://invoice-6wzx.onrender.com/)
+- [https://render.com//](https://render.com/)
 - 建立 Web Service → 選擇 GitHub Repo → 部署完成即提供網址
 
 ---
